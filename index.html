@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		body {
+			margin: 0px; 
+			padding: 0px;
+		}
+
+.main {
+	height: 80px;
+}
+
+.main .states {
+	text-decoration: none;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+
+.main .states li {
+	display: inline-block;
+	width: 33.333333%;
+	float: left;
+	height: 100%;
+}
+
+.main .states li a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	text-decoration: none;
+	color: #DDD;
+	background-color: inherit;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 15px;
+}
+
+
+.downloads {
+	position: relative;
+	display: none;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	background-color: #F1F1F1;
+}
+
+.downloads ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.downloads ul li {
+	display: inline-block;
+	width: 33.333333%;
+	float: left;
+	height: 80px;
+}
+
+@media screen and (max-width: 540px) {
+	.downloads ul li {
+		display: inline-block;
+		width: 100%;
+		float: left;
+		height: 80px;
+	}
+}
+
+.downloads ul li a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	text-decoration: none;
+	color: #DDD;
+	background-color: inherit;
+	text-align: center;
+}
+
+#pne-bahia {
+	background-color: #7e1a00;
+}
+
+#pne-sergipe {
+	background-color: #593200;
+}
+
+#pne-piaui {
+	background-color: #002f00;
+}
+
+#pne-bahia-sub {
+	border-top: 6px solid #7e1a00;
+	display: block;
+}
+
+#pne-sergipe-sub {
+	border-top: 6px solid #b36400;
+}
+
+#pne-piaui-sub {
+	border-top: 6px solid #005f00;
+}
+
+#pne-bahia-sub ul li:nth-child(odd) {
+	background-color:#974732;
+}
+
+#pne-bahia-sub ul li:nth-child(even) {
+	background-color: #be8c7f
+}
+
+#pne-sergipe-sub ul li:nth-child(odd) {
+	background-color: #c28332;
+}
+
+#pne-sergipe-sub ul li:nth-child(even) {
+	background-color: #d9b17f;
+}
+
+#pne-piaui-sub ul li:nth-child(odd) {
+	background-color: #327e32;
+}
+
+#pne-piaui-sub ul li:nth-child(even) {
+	background-color: #7faf7f;
+}
+
+	</style>
+</head>
+<body>
+<div class="main">
+	<ul class="states">
+		<li id="pne-bahia">
+			<a href="#"><span>PrevBahia</span></a>
+		</li>
+		<li id="pne-sergipe">
+			<a href="#"><span>PrevNordeste Sergipe</span></a>
+		</li>
+		<li id="pne-piaui">
+			<a href="#"><span>PrevNordeste Piauí</span></a>
+		</li>
+	</ul>
+</div>
+
+<div id="pne-bahia-sub" class="downloads">
+	<ul>
+		<li><a href="#">Arquivo 1</a></li>
+		<li><a href="#">Arquivo 1</a></li>
+		<li><a href="#">Arquivo 1</a></li>
+		<li><a href="#">Arquivo 1</a></li>
+		<li><a href="#">Arquivo 1</a></li>
+		<li><a href="#">Arquivo 1</a></li>
+	</ul>
+</div>
+<div id="pne-sergipe-sub" class="downloads">
+	<ul>
+		<li><a href="#">Arquivo 2</a></li>
+		<li><a href="#">Arquivo 2</a></li>
+		<li><a href="#">Arquivo 2</a></li>
+		<li><a href="#">Arquivo 2</a></li>
+		<li><a href="#">Arquivo 2</a></li>
+		<li><a href="#">Arquivo 2</a></li>
+	</ul>
+</div>
+<div id="pne-piaui-sub" class="downloads">
+	<ul>
+		<li><a href="#">Arquivo 3</a></li>
+		<li><a href="#">Arquivo 3</a></li>
+		<li><a href="#">Arquivo 3</a></li>
+		<li><a href="#">Arquivo 3</a></li>
+		<li><a href="#">Arquivo 3</a></li>
+		<li><a href="#">Arquivo 3</a></li>
+	</ul>
+</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+jQuery("#pne-bahia").on('click', function(event) {
+	event.preventDefault();
+
+	jQuery("#pne-sergipe").css('background-color', '#593200');
+	jQuery("#pne-piaui").css('background-color', '#002f00');
+	jQuery("#pne-bahia").css('background-color', '#7e1a00');
+
+	jQuery("#pne-sergipe-sub").hide(0);
+	jQuery("#pne-piaui-sub").hide(0);
+	jQuery("#pne-bahia-sub").fadeIn(400);
+});
+
+jQuery("#pne-sergipe").on('click', function(event) {
+	event.preventDefault();
+
+	jQuery("#pne-bahia").css('background-color', '#3f0d00');
+	jQuery("#pne-piaui").css('background-color', '#002f00');
+	jQuery("#pne-sergipe").css('background-color', '#b36400');
+
+	jQuery("#pne-bahia-sub").hide(0);
+	jQuery("#pne-piaui-sub").hide(0);
+	jQuery("#pne-sergipe-sub").fadeIn(400);
+});
+
+jQuery("#pne-piaui").on('click', function(event) {
+	event.preventDefault();
+
+	jQuery("#pne-sergipe").css('background-color', '#593200');
+	jQuery("#pne-bahia").css('background-color', '#3f0d00');
+	jQuery("#pne-piaui").css('background-color', '#005f00');
+
+	jQuery("#pne-bahia-sub").hide(0);
+	jQuery("#pne-sergipe-sub").hide(0);
+	jQuery("#pne-piaui-sub").fadeIn(400);
+});
+	</script>
+</body>
+</html>
